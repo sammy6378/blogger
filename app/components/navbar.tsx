@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { auth, signIn, signOut } from '@/auth';
+import { auth, signOut } from '@/auth';
 
 const Navbar = async () => {
     const session = await auth();
@@ -10,7 +10,7 @@ const Navbar = async () => {
         <header className="px-5 py-3 bg-white shadow-md font-work-sans sticky top-0 z-50">
             <nav className="flex justify-between items-center">
                 {/* Logo */}
-                <Link href="/">
+                <Link href="/" className='flex items-center gap-2'>
                     <Image
                         src="/logo.jpeg"
                         alt="logo"
@@ -18,6 +18,7 @@ const Navbar = async () => {
                         height={40}
                         className="rounded-full shadow-lg hover:shadow-xl transition-shadow"
                     />
+                    <p className='text-orange-400'>Blogger</p>
                 </Link>
 
                 {/* Navigation Links */}
@@ -53,7 +54,7 @@ const Navbar = async () => {
                             >
                                 <button
                                     type="submit"
-                                    className="bg-orange-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-orange-600 transition-all"
+                                    className="bg-orange-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-orange-600 transition-all"
                                 >
                                     Logout
                                 </button>
@@ -62,26 +63,14 @@ const Navbar = async () => {
                     ) : (
                         <>
                             <Link
-                                href="/startup/create"
+                                href="/user/sign-up"
                                 className="text-gray-700 hover:text-blue-600 font-medium"
                             >
                                 Create Account
                             </Link>
 
                             {/* Login Button */}
-                            <form
-                                action={async () => {
-                                    "use server";
-                                    await signIn('github');
-                                }}
-                            >
-                                <button
-                                    type="submit"
-                                    className="bg-blue-500 text-white px-4 py-2 rounded-md shadow-md hover:bg-blue-600 transition-all"
-                                >
-                                    Login
-                                </button>
-                            </form>
+                                <Link href="/user" className="bg-blue-500 text-white px-4 py-2 rounded-full shadow-md hover:bg-blue-600 transition-all">Login</Link>
                         </>
                     )}
                 </div>

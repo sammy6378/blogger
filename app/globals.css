@@ -14,6 +14,12 @@
   }
 }
 
+@layer utilities{
+  .input-container{
+    @apply w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 text-black-200
+  }
+}
+
 body {
   color: var(--foreground);
   background: var(--background);

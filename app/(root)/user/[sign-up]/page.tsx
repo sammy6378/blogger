@@ -2,6 +2,7 @@ import React from 'react';
 import '../../../globals.css';
 import Image from 'next/image';
 import { auth, signIn } from '@/auth';
+import Link from 'next/link';
 
 const  Page = async () => {
 
@@ -76,7 +77,7 @@ const  Page = async () => {
                 </div>
 
         <p className="text-sm text-gray-600 mt-4">
-          Already have an account? <a href="/user" className="text-purple-500 hover:underline">Log in</a>
+          Already have an account? <Link href="/user" className="text-purple-500 hover:underline">Log in</Link>
         </p>
       </div>
     </div>
